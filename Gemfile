@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
+require 'rbconfig'
+gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 gem 'bootstrap-sass', '2.3.2.0'
@@ -13,6 +16,10 @@ gem 'bootstrap-will_paginate', '0.0.9'
 group :development, :test do
 	gem 'sqlite3', '1.3.7'
 	gem 'rspec-rails', '2.13.1'
+	gem 'guard-rspec', '2.5.0'
+	gem 'spork-rails', github: 'railstutorial/spork-rails'
+	gem 'guard-spork', '1.5.0'
+	gem 'childprocess', '0.3.6'
 end
 
 group :test do
